@@ -2,13 +2,10 @@ package az.azmod.block.fluid;
 
 import az.azmod.AzMod;
 import az.azmod.block.ModBlocks;
+import az.azmod.registry.RegistryFluids;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidClassic;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -25,18 +22,7 @@ public class TestFluidBlock extends BlockFluidClassic {
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
-        TestFluidBlock.FluidMappingMischief map = new TestFluidBlock.FluidMappingMischief(ModBlocks.fluidTest);
+        RegistryFluids.FluidMappingMischief map = new RegistryFluids.FluidMappingMischief(ModBlocks.fluidTest);
         ModelLoader.setCustomStateMapper(this, map);
-    }
-
-    public static class FluidMappingMischief extends StateMapperBase {
-        private ModelResourceLocation whyIsThisSoHard;
-
-        public FluidMappingMischief(Fluid fluid){
-            this.whyIsThisSoHard = new ModelResourceLocation("azmod:fluidtest");
-        }
-
-        @Override
-        public ModelResourceLocation getModelResourceLocation(IBlockState unendingWrath){ return whyIsThisSoHard; }
     }
 }
