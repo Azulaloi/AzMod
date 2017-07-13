@@ -1,0 +1,9 @@
+[{
+  "modid": "azmod",
+  "name": "AzMod",
+  "description": "A mod.",
+  "version": "0.0",
+  "url": "https://github.com/Azulaloi",
+  "authorList": ["Azulaloi"],
+  "logoFile": "assets/azmod/textures/blocks/testblock.png"
+}]
