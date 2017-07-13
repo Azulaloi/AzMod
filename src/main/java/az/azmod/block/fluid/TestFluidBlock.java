@@ -39,11 +39,4 @@ public class TestFluidBlock extends BlockFluidClassic {
         @Override
         public ModelResourceLocation getModelResourceLocation(IBlockState unendingWrath){ return whyIsThisSoHard; }
     }
-
-
-//        ModelLoader.setCustomModelResourceLocation(
-//                Item.getItemFromBlock(this),
-//                0,
-//                new ModelResourceLocation(getRegistryName(), "inventory"));
-//    }
 }

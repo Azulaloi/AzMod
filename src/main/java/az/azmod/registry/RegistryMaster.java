@@ -29,7 +29,6 @@ public class RegistryMaster {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event){
         event.getRegistry().register(new ItemBlock(ModBlocks.testBlock).setRegistryName(ModBlocks.testBlock.getRegistryName()));
-//        event.getRegistry().register(new ItemBlock(ModBlocks.testBlock));
     }
 
 //    @SubscribeEvent

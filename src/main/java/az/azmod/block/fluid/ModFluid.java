@@ -14,10 +14,4 @@ public class ModFluid extends Fluid {
         super("fluidTest", Still, Flowing);
         setLuminosity(15);
     }
-
-//    @SideOnly(Side.CLIENT)
-//    public void initModel() {
-//        Block fluidBlock = fluid.getBlock
-//        ModelLoader.setCustomModelResourceLocation();
-//    }
 }

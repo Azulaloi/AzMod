@@ -1,6 +1,5 @@
 package az.azmod.proxy;
 
-
 import az.azmod.registry.RegistryMaster;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

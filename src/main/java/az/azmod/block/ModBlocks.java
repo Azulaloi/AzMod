@@ -12,16 +12,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by Azulaloi on 7/10/2017.
  */
-
 public class ModBlocks {
 
     @GameRegistry.ObjectHolder("azmod:testblock") //Creates Event
     public static TestBlock testBlock; //Creates Reference
 
-
-
     //Fluid stuff
-    public static Fluid fluidTest; //Creates fluid object
+    public static Fluid fluidTest; //Creates fluid reference
 
     @GameRegistry.ObjectHolder("azmod:testfluidblock") //Creates block event
     public static TestFluidBlock testFluidBlock; //Creates block reference
@@ -38,7 +35,5 @@ public class ModBlocks {
     public static void initModels(){
         testBlock.initModel();
         testFluidBlock.initModel();
-//        Model
-
     }
 }

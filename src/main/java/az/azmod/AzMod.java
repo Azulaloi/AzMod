@@ -12,8 +12,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-
-
 @Mod(modid = AzMod.MODID, name = AzMod.MODNAME, version = AzMod.MODVERSION, useMetadata = true)
 //dependencies = "required-after:Forge@[13.19.0.2129,)",
 public class AzMod {
@@ -28,8 +26,6 @@ public class AzMod {
     public static AzMod instance;
 
     public static Logger logger;
-
-//    public static CreativeTabs creativeTab;
 
     public static String getID(){
         return MODID;
@@ -51,8 +47,6 @@ public class AzMod {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         proxy.preInit(event);
-
-//        creativeTab = new CreativeTabs(MODID){@Override getTabIconItem(){}
     }
 
     @Mod.EventHandler
