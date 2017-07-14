@@ -12,7 +12,7 @@ public class ModFluids {
 
     static{
         fluidTest = RegistryFluids.initFluid(new ModFluid( //Defines fluid object as new object created by initFluid in RegistryFluids
-                "fluidTest", //Fluid name
+                "fluidtest", //Fluid name
                 new ResourceLocation("azmod:blocks/fluids/fluidtest_still"), //Still resource
                 new ResourceLocation("azmod:blocks/fluids/fluidtest_flowing") //Flowing resource
         ));

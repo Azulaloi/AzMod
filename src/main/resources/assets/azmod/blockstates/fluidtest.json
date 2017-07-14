@@ -3,7 +3,7 @@
   "variants":{
     "normal": {
 		"model": "forge:fluid",
-		"custom": {"fluid": "fluidtest"}
+		"custom": {"fluid": "azmod.fluidtest"}
 	},
 	"inventory":{
 		"model": "forge:forgebucket",
@@ -14,7 +14,7 @@
 		},
 		"transform": "forge:default-item",
 	"custom":{
-		"fluid": "fluidtest"}
+		"fluid": "azmod.fluidtest"}
 	}
   }
 }
