@@ -1,4 +1,4 @@
-package az.azmod.block;
+package az.azmod.block.blocks;
 
 import az.azmod.AzMod;
 import net.minecraft.block.Block;

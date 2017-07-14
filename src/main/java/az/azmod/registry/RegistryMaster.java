@@ -14,7 +14,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  */
 public class RegistryMaster {
     public static void init(){
-       RegistryBlocks.doRegisters();
+        RegistryBlocks.doRegisters();
+        RegistryFluids.doRegisters();
     }
 
 //    @SideOnly(Side.CLIENT)
@@ -23,7 +24,8 @@ public class RegistryMaster {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event){
         event.getRegistry().register(new TestBlock());
-        event.getRegistry().register(new TestFluidBlock());
+//        event.getRegistry().register(new TestFluidBlock());
+        event.getRegistry().register(new TestFluidBlock()); //I feel like I should be getting these from ModBlocks
     }
 
     @SubscribeEvent
@@ -31,9 +33,4 @@ public class RegistryMaster {
         event.getRegistry().register(new ItemBlock(ModBlocks.testBlock).setRegistryName(ModBlocks.testBlock.getRegistryName()));
     }
 
-//    @SubscribeEvent
-//    public static void registerRender(ModelRegistryEvent event){
-//        TestBlock.initModel();
-//    }
-//    @SideOnly(Side.CLIENT)
 }

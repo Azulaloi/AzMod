@@ -7,11 +7,20 @@ import net.minecraftforge.fluids.Fluid;
  * Created by Azulaloi on 7/12/2017.
  */
 public class ModFluid extends Fluid {
-    public static ResourceLocation Still = new ResourceLocation("azmod:blocks/fluids/fluidtest_still");
-    public static ResourceLocation Flowing = new ResourceLocation("azmod:blocks/fluids/fluidtest_flowing");
 
-    public ModFluid() {
-        super("fluidTest", Still, Flowing);
-        setLuminosity(15);
+    //While this is currently functionally identical to implementing Fluid,
+    //this class should allow me to implement other features in the future.
+    public ModFluid(String name, ResourceLocation still, ResourceLocation flowing) {
+        super(name, still, flowing);
+
+//        setLuminosity(15);
+//        setDensity();
+//        setEmptySound();
+//        setFillSound();
+//        setGaseous();
+//        setRarity();
+//        setTemperature();
+//        setViscosity();
+//        setUnlocalizedName();
     }
 }

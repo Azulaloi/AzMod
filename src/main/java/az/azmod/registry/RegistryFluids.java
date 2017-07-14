@@ -1,5 +1,6 @@
 package az.azmod.registry;
 
+import az.azmod.block.fluid.ModFluid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
@@ -15,7 +16,7 @@ public class RegistryFluids {
         registerFluidBlocks();
     }
 
-        public static Fluid initFluid(Fluid fluidToInit){
+        public static ModFluid initFluid(ModFluid fluidToInit){
         FluidRegistry.registerFluid(fluidToInit);
         FluidRegistry.addBucketForFluid(fluidToInit);
 

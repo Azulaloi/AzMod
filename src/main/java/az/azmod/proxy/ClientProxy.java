@@ -18,7 +18,6 @@ public class ClientProxy extends CommonProxy {
     public void  preInit(FMLPreInitializationEvent event){
         super.preInit(event);
 //        RegistryMaster.initClient();
-
     }
 
     @Override
@@ -31,10 +30,9 @@ public class ClientProxy extends CommonProxy {
         super.postInit(event);
 //        ModBlocks.initItemModels();
     }
-//
+
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event){
-//        RegistryMaster.
         ModBlocks.initModels();
 //        ModItems.initModels();
     }
