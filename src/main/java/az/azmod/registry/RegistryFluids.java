@@ -11,8 +11,7 @@ import net.minecraftforge.fluids.FluidRegistry;
  * Created by Azulaloi on 7/13/2017.
  */
 public class RegistryFluids {
-    public static void doRegisters(){
-
+    public static void init(){
         registerFluidBlocks();
     }
 

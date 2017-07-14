@@ -5,7 +5,7 @@ package az.azmod.registry;
  */
 public class RegistryBlocks {
 
-    public static void doRegisters() {
+    public static void init() {
         registerBlocks();
     }
 
