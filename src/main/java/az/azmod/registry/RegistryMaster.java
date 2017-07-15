@@ -2,6 +2,7 @@ package az.azmod.registry;
 
 import az.azmod.block.ModBlocks;
 import az.azmod.block.blocks.TestBlock;
+import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.fluid.TestFluidBlock;
 import az.azmod.item.TestItem;
 import net.minecraft.block.Block;
@@ -26,6 +27,7 @@ public class RegistryMaster {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event){
         event.getRegistry().register(new TestBlock());
+        event.getRegistry().register(new TestBlockRotatable());
 //        event.getRegistry().register(new TestFluidBlock());
         event.getRegistry().register(new TestFluidBlock()); //I feel like I should be getting these from ModBlocks
     }
@@ -34,7 +36,7 @@ public class RegistryMaster {
     public static void registerItems(RegistryEvent.Register<Item> event){
         //Block items
         event.getRegistry().register(new ItemBlock(ModBlocks.testBlock).setRegistryName(ModBlocks.testBlock.getRegistryName()));
-
+        event.getRegistry().register(new ItemBlock(ModBlocks.testBlockRotatable).setRegistryName(ModBlocks.testBlockRotatable.getRegistryName()));
         //Just items
         event.getRegistry().register(new TestItem());
     }

@@ -1,6 +1,7 @@
 package az.azmod.block;
 
 import az.azmod.block.blocks.TestBlock;
+import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.fluid.TestFluidBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -17,6 +18,8 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("azmod:testblock") //Creates Event
     public static TestBlock testBlock; //Creates Reference
 
+    @GameRegistry.ObjectHolder("azmod:testblockrotatable")
+    public static TestBlockRotatable testBlockRotatable;
 
     /**
      * Fluid Blocks
@@ -31,6 +34,7 @@ public class ModBlocks {
     @SideOnly(Side.CLIENT) //Client-side conditional
     public static void initModels(){
         testBlock.initModel();
+        testBlockRotatable.initModel();
         testFluidBlock.initModel();
     }
 }
