@@ -1,6 +1,7 @@
 package az.azmod.block.blocks;
 
 import az.azmod.AzMod;
+import az.azmod.util.helpers.AzInventory;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -35,6 +36,11 @@ public class TestChest extends ModBlock implements ITileEntityProvider
     }
 
     @Override
+    public boolean hasTileEntity(IBlockState state){
+        return true;
+    }
+
+    @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
         if (worldIn.isRemote){
             return true;
@@ -46,5 +52,17 @@ public class TestChest extends ModBlock implements ITileEntityProvider
 
         playerIn.openGui(AzMod.instance, GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
+    }
+
+    @Override
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state){
+        TileEntity te = worldIn.getTileEntity(pos);
+
+        if (te instanceof TestChestEntity){
+            AzInventory.dropContents((((TestChestEntity) te).itemStackHandler), worldIn, pos, state);
+//            ((TestChestEntity) te).breakBlock(worldIn, pos, state);
+        }
+
+        super.breakBlock(worldIn, pos, state);
     }
 }

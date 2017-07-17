@@ -14,7 +14,7 @@ import net.minecraftforge.items.ItemStackHandler;
 public class TestChestEntity extends TileEntity{
 
     public static final int SIZE = 9;
-    private ItemStackHandler itemStackHandler = new ItemStackHandler(3){
+    public ItemStackHandler itemStackHandler = new ItemStackHandler(3){
         @Override
         protected void onContentsChanged(int slot) {
             TestChestEntity.this.markDirty(); //makes it check before operating?
@@ -48,4 +48,8 @@ public class TestChestEntity extends TileEntity{
         }
         return super.getCapability(capability, facing);
     }
+
+//    public void breakBlock(World worldIn, BlockPos pos, IBlockState state){
+//        InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)this);
+//    }
 }
