@@ -1,7 +1,7 @@
 package az.azmod.util.helpers;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -11,20 +11,37 @@ import net.minecraftforge.items.IItemHandler;
  * Created by Azulaloi on 7/17/2017.
  */
 public class AzInventory {
-    public static void dropContents(IItemHandler inv, World world, BlockPos pos, IBlockState state){
+    /**
+     * Functionally similar to net.minecraft.inventory.InventoryHelper.dropInventoryItems
+     * but works with IItemHandler, rather than IInventory
+     */
+
+    public static void dropContents(IItemHandler inv, World world, BlockPos pos){
+        dropContents(inv, world, pos.getX(), pos.getY(), pos.getZ());
+    }
+
+    public static void dropContents(IItemHandler inv, World world, double x, double y, double z ){
         if (inv != null && !world.isRemote){ //Does this exist and are we the server
             for (int i = 0; i < inv.getSlots(); ++i){
                 ItemStack stack = inv.getStackInSlot(i);
 
                 if (!stack.isEmpty()){
-                    spawnItemStack(world, pos, stack);
+//                    spawnItemStack(world, x, y, z, stack);
+
+                    //Use vanilla's item spawner at this point, not
+                    //currently necessary to re-implement noise functions
+                    InventoryHelper.spawnItemStack(world, x, y, z, stack);
                 }
             }
         }
     }
 
-    public static void spawnItemStack(World worldIn, BlockPos pos, ItemStack stack){
-        EntityItem entityitem = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), stack);
+
+    /*
+    Simple function to drop an item.
+     */
+    public static void spawnItemStack(World worldIn, double x, double y, double z, ItemStack stack){
+        EntityItem entityitem = new EntityItem(worldIn, x, y, z, stack);
         worldIn.spawnEntity(entityitem);
     }
 }

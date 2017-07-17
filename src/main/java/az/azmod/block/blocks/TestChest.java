@@ -59,7 +59,7 @@ public class TestChest extends ModBlock implements ITileEntityProvider
         TileEntity te = worldIn.getTileEntity(pos);
 
         if (te instanceof TestChestEntity){
-            AzInventory.dropContents((((TestChestEntity) te).itemStackHandler), worldIn, pos, state);
+            AzInventory.dropContents((((TestChestEntity) te).itemStackHandler), worldIn, pos);
 //            ((TestChestEntity) te).breakBlock(worldIn, pos, state);
         }
 
