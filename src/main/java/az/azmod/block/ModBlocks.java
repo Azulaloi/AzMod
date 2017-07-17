@@ -2,6 +2,7 @@ package az.azmod.block;
 
 import az.azmod.block.blocks.TestBlock;
 import az.azmod.block.blocks.TestBlockRotatable;
+import az.azmod.block.blocks.TestChest;
 import az.azmod.block.fluid.TestFluidBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -21,6 +22,9 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("azmod:testblockrotatable")
     public static TestBlockRotatable testBlockRotatable;
 
+    @GameRegistry.ObjectHolder("azmod:testchest")
+    public static TestChest testChest;
+
     /**
      * Fluid Blocks
      */
@@ -36,5 +40,6 @@ public class ModBlocks {
         testBlock.initModel();
         testBlockRotatable.initModel();
         testFluidBlock.initModel();
+        testChest.initModel();
     }
 }

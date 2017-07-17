@@ -27,4 +27,27 @@ public abstract class ModBlock extends Block {
                 0,
                 new ModelResourceLocation(getRegistryName(), "inventory"));
     }
+
+//    @Override
+//    public abstract boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+//                                             ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ);
+//    {return super.onBlockActivated}
+
+//    @Override
+//    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+//                                             ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
+//    {
+//        return false;
+//    }
+
+//    @Override
+//    public boolean onBlockActivated(){
+//        super();
+//    }
+
+//    @Override
+//    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+//                                    ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
+//       return super.onBlockActivated(world, pos, state, player, hand, side, hitX, hitY, hitZ);
+//    }
 }

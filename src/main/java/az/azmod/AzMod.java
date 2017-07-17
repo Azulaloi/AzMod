@@ -40,6 +40,8 @@ public class AzMod {
     };
 
     static {
+        //You do it!
+        //No, you do it!
         FluidRegistry.enableUniversalBucket();
     }
 

@@ -5,6 +5,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+
+import static az.azmod.AzMod.instance;
 
 /**
  * Created by Azulaloi on 7/9/2017.
@@ -26,7 +29,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent event){
-
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiProxy());
     }
 
     public void postInit(FMLPostInitializationEvent event) {
