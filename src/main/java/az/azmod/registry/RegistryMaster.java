@@ -7,7 +7,6 @@ import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.blocks.TestChest;
 import az.azmod.block.blocks.TestChestEntity;
 import az.azmod.block.fluid.TestFluidBlock;
-import az.azmod.item.TestItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -46,6 +45,6 @@ public class RegistryMaster {
         event.getRegistry().register(new ItemBlock(ModBlocks.testBlockRotatable).setRegistryName(ModBlocks.testBlockRotatable.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.testChest).setRegistryName(ModBlocks.testChest.getRegistryName()));
         //Just items
-        event.getRegistry().register(new TestItem());
+//        event.getRegistry().register(new TestItem());
     }
 }
