@@ -1,6 +1,5 @@
 package az.azcore.item;
 
-import az.azcore.registry.IInitModel;
 import az.azcore.registry.IRegisterable;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,7 +11,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 /**
  * Created by Azulaloi on 7/17/2017.
  */
-public abstract class ModItem extends Item implements IRegisterable, IInitModel{
+public abstract class ModItem extends Item implements IRegisterable{
 
     public String ID = Loader.instance().activeModContainer().getModId().toLowerCase();
 

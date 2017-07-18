@@ -1,11 +1,11 @@
 package az.azcore;
 
+import az.azcore.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,8 +21,7 @@ public class AzCore {
     public static final String MODNAME = "AzCore";
     public static final String MODVERSION = "0.0";
 
-    @SidedProxy(clientSide = "az.azcore.proxy.ClientProxy")
-    public static az.azcore.proxy.CommonProxy proxy;
+    public static CommonProxy proxy;
 
     @Mod.Instance
     public static AzCore instance;
@@ -41,17 +40,17 @@ public class AzCore {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        proxy.preInit(event);
+//        proxy.preInit(event);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
-        proxy.init(event);
+//        proxy.init(event);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
+//        proxy.postInit(event);
     }
 
 

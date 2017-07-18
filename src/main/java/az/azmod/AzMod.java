@@ -4,6 +4,7 @@ import az.azmod.block.ModBlocks;
 import az.azmod.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -48,6 +49,7 @@ public class AzMod {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
+        MinecraftForge.EVENT_BUS.register(proxy);
         proxy.preInit(event);
     }
 
