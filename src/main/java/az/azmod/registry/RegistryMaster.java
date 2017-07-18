@@ -2,7 +2,6 @@ package az.azmod.registry;
 
 import az.azmod.AzMod;
 import az.azmod.block.ModBlocks;
-import az.azmod.block.blocks.TestBlock;
 import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.blocks.TestChest;
 import az.azmod.block.blocks.TestChestEntity;
@@ -29,7 +28,7 @@ public class RegistryMaster {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event){
-        event.getRegistry().register(new TestBlock());
+//        event.getRegistry().register(new TestBlock());
         event.getRegistry().register(new TestBlockRotatable());
         event.getRegistry().register(new TestFluidBlock()); //I feel like I should be getting these from ModBlocks
 
