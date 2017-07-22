@@ -25,7 +25,7 @@ public abstract class ModItem extends Item implements IRegisterable{
 
     @Override
     public void register(){
-        ForgeRegistries.ITEMS.register(this);
+       ForgeRegistries.ITEMS.register(this);
     }
 
     @Override

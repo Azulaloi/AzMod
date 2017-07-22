@@ -15,12 +15,12 @@ import net.minecraft.world.World;
 /**
  * Created by Azulaloi on 7/17/2017.
  */
-public class TestChest extends ModBlock implements ITileEntityProvider
+public class TestChest extends az.azcore.block.ModBlock implements ITileEntityProvider
 {
     public static final int GUI_ID =1;
 
     public TestChest(){
-        super("testchest", Material.WOOD);
+        super("testchest", Material.WOOD, AzMod.creativeTab);
     }
 
 //    public TestChest(){

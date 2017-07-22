@@ -13,7 +13,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = AzMod.MODID, name = AzMod.MODNAME, version = AzMod.MODVERSION, useMetadata = true)
+@Mod(modid = AzMod.MODID, name = AzMod.MODNAME, version = AzMod.MODVERSION, useMetadata = true,
+dependencies = "required-after:azcore@[0.0,)")
 //dependencies = "required-after:Forge@[13.19.0.2129,)",
 public class AzMod {
     public static final String MODID = "azmod";

@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public class ModItems {
 
+   private static ArrayList<IRegisterable> registerables = new ArrayList<>();
+
    public static void preInit(){
       testItem = new TestItem("testitem");
       testItem2 = new TestItem("testitem2");
@@ -28,7 +30,7 @@ public class ModItems {
 
    }
 
-   private static ArrayList<IRegisterable> registerables = new ArrayList<>();
+
 
    @SideOnly(Side.CLIENT) //Client-side conditional
    public static void initModels(){
