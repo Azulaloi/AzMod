@@ -1,6 +1,8 @@
 package az.azmod.block.blocks;
 
+import az.azcore.block.ModBlock;
 import az.azmod.AzMod;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -20,15 +22,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by Azulaloi on 7/14/2017.
  */
-public class TestBlockRotatable extends Block {
+public class TestBlockRotatable extends ModBlock {
 //    public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
     public TestBlockRotatable() {
-        super(Material.ROCK);
-        setUnlocalizedName(AzMod.MODID + ".testblockrotatable");
-        setRegistryName("testblockrotatable");
-        setCreativeTab(AzMod.creativeTab);
+        super("testblockrotatable", Material.ROCK, AzMod.creativeTab);
+//        setUnlocalizedName(AzMod.MODID + ".testblockrotatable");
+//        setRegistryName("testblockrotatable");
+//        setCreativeTab(AzMod.creativeTab);
 
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
@@ -60,11 +62,11 @@ public class TestBlockRotatable extends Block {
                 (float) (entity.posZ) - clickedBlock.getZ());
     }
 
-    @SideOnly(Side.CLIENT)
-    public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(
-                Item.getItemFromBlock(this),
-                0,
-                new ModelResourceLocation(getRegistryName(), "inventory"));
-    }
+//    @SideOnly(Side.CLIENT)
+//    public void initModel() {
+//        ModelLoader.setCustomModelResourceLocation(
+//                Item.getItemFromBlock(this),
+//                0,
+//                new ModelResourceLocation(getRegistryName(), "inventory"));
+//    }
 }

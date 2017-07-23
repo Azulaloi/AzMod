@@ -1,4 +1,4 @@
-package az.azmod.block.blocks;
+package az.azmod.block.blocks.testchest;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;

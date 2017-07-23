@@ -1,5 +1,6 @@
-package az.azmod.block.blocks;
+package az.azmod.block.blocks.testchest;
 
+import az.azcore.block.ModBlock;
 import az.azmod.AzMod;
 import az.azmod.util.helpers.AzInventory;
 import net.minecraft.block.ITileEntityProvider;
@@ -11,24 +12,31 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * Created by Azulaloi on 7/17/2017.
  */
-public class TestChest extends az.azcore.block.ModBlock implements ITileEntityProvider
+public class TestChestBlock extends ModBlock implements ITileEntityProvider
 {
     public static final int GUI_ID =1;
 
-    public TestChest(){
+    public TestChestBlock(){
         super("testchest", Material.WOOD, AzMod.creativeTab);
     }
 
-//    public TestChest(){
+//    public TestChestBlock(){
 //        super(Material.WOOD);
 //        setUnlocalizedName("testchest");
 //        setRegistryName(AzMod.getID(), "testchest");
 //        setCreativeTab(AzMod.creativeTab);
 //    }
+
+    @Override
+    public void register(){
+        super.register();
+        GameRegistry.registerTileEntity(TestChestEntity.class, AzMod.MODID + "_testchest");
+    }
 
     @Override
     public TileEntity createNewTileEntity(World world, int m) {

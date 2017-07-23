@@ -1,6 +1,9 @@
 # Blocks
 tile.azmod.testblock.name=Test Block
+tile.azmod.testblockrotatable.name=Test Rotatable Block
+tile.azmod.testchest.name=Test Chest
 # Juicy Juice
 fluid.azmod.fluidtest=Test Fluid
 # Items
-item.azmod.testitem.name=Test Item
+item.azmod.testitem.name=Test Item Prime
+item.azmod.testitem1.name=Test Item Minor

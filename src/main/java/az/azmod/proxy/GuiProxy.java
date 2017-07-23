@@ -1,8 +1,8 @@
 package az.azmod.proxy;
 
-import az.azmod.block.blocks.TestChestContainer;
-import az.azmod.block.blocks.TestChestEntity;
-import az.azmod.block.blocks.TestChestGui;
+import az.azmod.block.blocks.testchest.TestChestContainer;
+import az.azmod.block.blocks.testchest.TestChestEntity;
+import az.azmod.block.blocks.testchest.TestChestGui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;

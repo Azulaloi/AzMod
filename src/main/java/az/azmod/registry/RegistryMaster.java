@@ -3,8 +3,8 @@ package az.azmod.registry;
 import az.azmod.AzMod;
 import az.azmod.block.ModBlocks;
 import az.azmod.block.blocks.TestBlockRotatable;
-import az.azmod.block.blocks.TestChest;
-import az.azmod.block.blocks.TestChestEntity;
+import az.azmod.block.blocks.testchest.TestChestBlock;
+import az.azmod.block.blocks.testchest.TestChestEntity;
 import az.azmod.block.fluid.TestFluidBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -33,7 +33,7 @@ public class RegistryMaster {
         event.getRegistry().register(new TestFluidBlock()); //I feel like I should be getting these from ModBlocks
 
         //TileEntities and their Blocks
-        event.getRegistry().register(new TestChest());
+        event.getRegistry().register(new TestChestBlock());
         GameRegistry.registerTileEntity(TestChestEntity.class, AzMod.MODID + "_testchest");
     }
 

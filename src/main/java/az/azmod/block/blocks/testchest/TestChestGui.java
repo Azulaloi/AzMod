@@ -1,4 +1,4 @@
-package az.azmod.block.blocks;
+package az.azmod.block.blocks.testchest;
 
 import az.azmod.AzMod;
 import net.minecraft.client.gui.inventory.GuiContainer;
