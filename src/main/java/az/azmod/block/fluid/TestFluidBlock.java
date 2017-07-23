@@ -13,10 +13,4 @@ public class TestFluidBlock extends ModFluidBlock {
 //        setRegistryName("testfluidblock");
 //        setCreativeTab(AzMod.creativeTab);
     }
-
-//    @SideOnly(Side.CLIENT)
-//    public void initModel() {
-////        super.initModel();
-////        return super.initModel();
-//    }
 }

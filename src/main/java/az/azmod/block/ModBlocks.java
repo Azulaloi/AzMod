@@ -23,10 +23,12 @@ public class ModBlocks {
         testBlock = new TestBlock("testblock", Material.ROCK);
         testBlockRotatable = new TestBlockRotatable();
         testChest = new TestChestBlock();
+        testFluidBlock = new TestFluidBlock();
 
         registerables.add(testBlock);
         registerables.add(testBlockRotatable);
         registerables.add(testChest);
+        registerables.add(testFluidBlock);
 
         for (IRegisterable registerable : registerables) {
             registerable.register();
@@ -36,6 +38,7 @@ public class ModBlocks {
     public static TestBlock testBlock;
     public static TestBlockRotatable testBlockRotatable;
     public static TestChestBlock testChest;
+    public static TestFluidBlock testFluidBlock;
 
     @SideOnly(Side.CLIENT) //Client-side conditional
     public static void initModels(){
@@ -59,8 +62,8 @@ public class ModBlocks {
      * Fluid Blocks
      */
 
-    @GameRegistry.ObjectHolder("azmod:fluidtestblock") //Creates block event
-    public static TestFluidBlock testFluidBlock; //Creates block reference
+//    @GameRegistry.ObjectHolder("azmod:fluidtestblock") //Creates block event
+//    public static TestFluidBlock testFluidBlock; //Creates block reference
 
     /**
      * Models

@@ -15,12 +15,12 @@ public class RegistryFluids {
         registerFluidBlocks();
     }
 
-        public static ModFluid initFluid(ModFluid fluidToInit){
-        FluidRegistry.registerFluid(fluidToInit);
-        FluidRegistry.addBucketForFluid(fluidToInit);
-
-        return fluidToInit;
-    }
+//        public static ModFluid initFluid(ModFluid fluidToInit){
+//        FluidRegistry.registerFluid(fluidToInit);
+//        FluidRegistry.addBucketForFluid(fluidToInit);
+//
+//        return fluidToInit;
+//    }
 
     public static void registerFluidBlocks(){
 
