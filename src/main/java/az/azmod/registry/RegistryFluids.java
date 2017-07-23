@@ -13,25 +13,5 @@ public class RegistryFluids {
         registerFluidBlocks();
     }
 
-//        public static ModFluid initFluid(ModFluid fluidToInit){
-//        FluidRegistry.registerFluid(fluidToInit);
-//        FluidRegistry.addBucketForFluid(fluidToInit);
-//
-//        return fluidToInit;
-//    }
-
-    public static void registerFluidBlocks(){
-
-    }
-//
-//    public static class FluidMappingMischief extends StateMapperBase { //I'm the map, I'm the map
-//        private ModelResourceLocation location;
-//
-//        public FluidMappingMischief(Fluid fluid){
-//            this.location = new ModelResourceLocation("azmod:fluidtest");
-//        }
-//
-//        @Override
-//        public ModelResourceLocation getModelResourceLocation(IBlockState something){ return location; }
-//    }
+    public static void registerFluidBlocks(){}
 }

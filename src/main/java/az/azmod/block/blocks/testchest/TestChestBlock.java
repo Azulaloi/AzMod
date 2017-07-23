@@ -2,7 +2,7 @@ package az.azmod.block.blocks.testchest;
 
 import az.azcore.block.ModBlock;
 import az.azmod.AzMod;
-import az.azmod.util.helpers.AzInventory;
+import az.azcore.util.InventoryUtil;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -67,7 +67,7 @@ public class TestChestBlock extends ModBlock implements ITileEntityProvider
         TileEntity te = worldIn.getTileEntity(pos);
 
         if (te instanceof TestChestEntity){
-            AzInventory.dropContents((((TestChestEntity) te).itemStackHandler), worldIn, pos);
+            InventoryUtil.dropContents((((TestChestEntity) te).itemStackHandler), worldIn, pos);
 //            ((TestChestEntity) te).breakBlock(worldIn, pos, state);
         }
 

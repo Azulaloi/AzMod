@@ -16,7 +16,6 @@ import static az.azmod.AzMod.instance;
 
 //@Mod.EventBusSubscriber
 public class CommonProxy extends PseudoProxy{
-
     @Override
     public void preInit(FMLPreInitializationEvent event){
         super.preInit(event);
@@ -27,7 +26,6 @@ public class CommonProxy extends PseudoProxy{
     @Override
     public void init(FMLInitializationEvent event){
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiProxy());
-
     }
 
     @Override

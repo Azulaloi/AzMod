@@ -18,7 +18,7 @@ dependencies = "required-after:azcore@[0.0,)")
 //dependencies = "required-after:Forge@[13.19.0.2129,)",
 public class AzMod {
     public static final String MODID = "azmod";
-    public static final String MODNAME = "A Test";
+    public static final String MODNAME = "AzMod";
     public static final String MODVERSION = "0.0";
 
     @SidedProxy(clientSide = "az.azmod.proxy.ClientProxy")
@@ -29,14 +29,9 @@ public class AzMod {
 
     public static Logger logger;
 
-    public static String getID(){
-        return MODID;
-    }
-
     public static CreativeTabs creativeTab = new CreativeTabs(MODID){
         @Override
-            public ItemStack getTabIconItem() {
-//            return new ItemStack(Items.DIAMOND);
+        public ItemStack getTabIconItem() {
             return new ItemStack(ModBlocks.testBlock);
         }
     };

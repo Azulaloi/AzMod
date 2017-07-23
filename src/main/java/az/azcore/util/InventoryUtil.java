@@ -1,4 +1,4 @@
-package az.azmod.util.helpers;
+package az.azcore.util;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.InventoryHelper;
@@ -10,7 +10,7 @@ import net.minecraftforge.items.IItemHandler;
 /**
  * Created by Azulaloi on 7/17/2017.
  */
-public class AzInventory {
+public class InventoryUtil {
     /**
      * Functionally similar to net.minecraft.inventory.InventoryHelper.dropInventoryItems
      * but works with IItemHandler, rather than IInventory
