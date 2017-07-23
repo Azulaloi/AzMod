@@ -6,7 +6,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+import static az.azcore.util.AzUtil.unlocalizedWithID;
+import static az.azcore.util.RegisterUtil.registerItem;
 
 /**
  * Created by Azulaloi on 7/17/2017.
@@ -16,7 +18,7 @@ public abstract class ModItem extends Item implements IRegisterable{
     public String ID = Loader.instance().activeModContainer().getModId().toLowerCase();
 
     public ModItem(String name, CreativeTabs creativeTab){
-        setUnlocalizedName(ID + "." + name);
+        setUnlocalizedName(unlocalizedWithID(name, ID));
         setRegistryName(name);
         if (creativeTab != null) {
             setCreativeTab(creativeTab);
@@ -25,7 +27,7 @@ public abstract class ModItem extends Item implements IRegisterable{
 
     @Override
     public void register(){
-       ForgeRegistries.ITEMS.register(this);
+       registerItem(this);
     }
 
     @Override
