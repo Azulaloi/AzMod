@@ -1,6 +1,7 @@
 package az.azcore.fluid;
 
 import az.azcore.registry.IRegisterable;
+import az.azcore.util.ModelUtil;
 import az.azmod.AzMod;
 import az.azmod.registry.RegistryFluids;
 import net.minecraft.block.material.Material;
@@ -48,7 +49,7 @@ public abstract class BaseFluidBlock extends BlockFluidClassic implements IRegis
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
-        RegistryFluids.FluidMappingMischief map = new RegistryFluids.FluidMappingMischief(this.getFluid());
+        ModelUtil.FluidMappingMischief map = new ModelUtil.FluidMappingMischief(this.getFluid(), ID);
         ModelLoader.setCustomStateMapper(this, map);
     }
 }

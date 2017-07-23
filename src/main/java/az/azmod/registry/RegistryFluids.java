@@ -23,15 +23,15 @@ public class RegistryFluids {
     public static void registerFluidBlocks(){
 
     }
-
-    public static class FluidMappingMischief extends StateMapperBase { //I'm the map, I'm the map
-        private ModelResourceLocation location;
-
-        public FluidMappingMischief(Fluid fluid){
-            this.location = new ModelResourceLocation("azmod:fluidtest");
-        }
-
-        @Override
-        public ModelResourceLocation getModelResourceLocation(IBlockState something){ return location; }
-    }
+//
+//    public static class FluidMappingMischief extends StateMapperBase { //I'm the map, I'm the map
+//        private ModelResourceLocation location;
+//
+//        public FluidMappingMischief(Fluid fluid){
+//            this.location = new ModelResourceLocation("azmod:fluidtest");
+//        }
+//
+//        @Override
+//        public ModelResourceLocation getModelResourceLocation(IBlockState something){ return location; }
+//    }
 }
