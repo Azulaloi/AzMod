@@ -3,6 +3,7 @@ package az.azmod.item;
 import az.azcore.registry.IRegisterable;
 import az.azmod.item.items.TestFood;
 import az.azmod.item.items.TestItem;
+import az.azmod.item.items.TestSword;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -19,10 +20,12 @@ public class ModItems {
       testItem = new TestItem("testitem");
       testItem2 = new TestItem("testitem2");
       testFood = new TestFood();
+      testSword = new TestSword();
 
       registerables.add(testItem);
       registerables.add(testItem2);
       registerables.add(testFood);
+      registerables.add(testSword);
 
       for (IRegisterable registerable : registerables) {
          registerable.register();
@@ -46,5 +49,6 @@ public class ModItems {
    public static TestItem testItem;
    public static TestItem testItem2;
    public static TestFood testFood;
+   public static TestSword testSword;
 
 }
