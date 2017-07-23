@@ -4,9 +4,8 @@ import az.azcore.registry.IRegisterable;
 import az.azmod.block.blocks.TestBlock;
 import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.blocks.testchest.TestChestBlock;
-import az.azmod.block.fluid.TestFluidBlock;
+import az.azmod.fluid.fluids.TestFluidBlock;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

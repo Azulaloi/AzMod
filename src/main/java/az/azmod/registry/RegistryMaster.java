@@ -5,7 +5,7 @@ import az.azmod.block.ModBlocks;
 import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.blocks.testchest.TestChestBlock;
 import az.azmod.block.blocks.testchest.TestChestEntity;
-import az.azmod.block.fluid.TestFluidBlock;
+import az.azmod.fluid.fluids.TestFluidBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;

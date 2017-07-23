@@ -1,4 +1,4 @@
-package az.azmod.item;
+package az.azmod.item.items;
 
 import az.azcore.item.ModItem;
 import az.azmod.AzMod;

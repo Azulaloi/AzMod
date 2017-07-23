@@ -1,10 +1,7 @@
-package az.azmod.block;
+package az.azmod.fluid;
 
 import az.azcore.fluid.BaseFluid;
 import az.azcore.util.RegisterUtil;
-import az.azmod.AzMod;
-import az.azmod.block.fluid.ModFluid;
-import az.azmod.registry.RegistryFluids;
 import net.minecraft.util.ResourceLocation;
 
 public class ModFluids {

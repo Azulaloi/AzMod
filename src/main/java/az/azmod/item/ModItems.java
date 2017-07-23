@@ -1,6 +1,7 @@
 package az.azmod.item;
 
 import az.azcore.registry.IRegisterable;
+import az.azmod.item.items.TestItem;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
