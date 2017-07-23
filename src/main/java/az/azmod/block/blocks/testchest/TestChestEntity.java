@@ -22,6 +22,12 @@ public class TestChestEntity extends TileEntity{
     };
 
     @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound){
+        compound.setTag("items", itemStackHandler.serializeNBT());
+        return super.writeToNBT(compound);
+    }
+
+    @Override
     public void readFromNBT(NBTTagCompound compound){
         super.readFromNBT(compound);
         if (compound.hasKey("items")) {
