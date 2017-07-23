@@ -1,4 +1,4 @@
-package az.azmod.block.blocks;
+package az.azmod.block.blocks.testchest;
 
 import jline.internal.Nullable;
 import net.minecraft.entity.player.EntityPlayer;

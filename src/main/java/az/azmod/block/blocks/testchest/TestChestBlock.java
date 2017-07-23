@@ -1,7 +1,8 @@
-package az.azmod.block.blocks;
+package az.azmod.block.blocks.testchest;
 
+import az.azcore.block.ModBlock;
 import az.azmod.AzMod;
-import az.azmod.util.helpers.AzInventory;
+import az.azcore.util.InventoryUtil;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -11,24 +12,31 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * Created by Azulaloi on 7/17/2017.
  */
-public class TestChest extends ModBlock implements ITileEntityProvider
+public class TestChestBlock extends ModBlock implements ITileEntityProvider
 {
     public static final int GUI_ID =1;
 
-    public TestChest(){
-        super("testchest", Material.WOOD);
+    public TestChestBlock(){
+        super("testchest", Material.WOOD, AzMod.creativeTab);
     }
 
-//    public TestChest(){
+//    public TestChestBlock(){
 //        super(Material.WOOD);
 //        setUnlocalizedName("testchest");
 //        setRegistryName(AzMod.getID(), "testchest");
 //        setCreativeTab(AzMod.creativeTab);
 //    }
+
+    @Override
+    public void register(){
+        super.register();
+        GameRegistry.registerTileEntity(TestChestEntity.class, AzMod.MODID + "_testchest");
+    }
 
     @Override
     public TileEntity createNewTileEntity(World world, int m) {
@@ -59,7 +67,7 @@ public class TestChest extends ModBlock implements ITileEntityProvider
         TileEntity te = worldIn.getTileEntity(pos);
 
         if (te instanceof TestChestEntity){
-            AzInventory.dropContents((((TestChestEntity) te).itemStackHandler), worldIn, pos);
+            InventoryUtil.dropContents((((TestChestEntity) te).itemStackHandler), worldIn, pos);
 //            ((TestChestEntity) te).breakBlock(worldIn, pos, state);
         }
 

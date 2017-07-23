@@ -1,9 +1,18 @@
 [{
   "modid": "azmod",
   "name": "AzMod",
-  "description": "A mod.",
+  "description": "A test implementation of AzCore functionality.",
   "version": "0.0",
-  "url": "https://github.com/Azulaloi",
+  "url": "https://github.com/Azulaloi/AzMod",
   "authorList": ["Azulaloi"],
   "logoFile": "assets/azmod/textures/blocks/testblock.png"
+},
+{
+  "modid": "azcore",
+  "name": "AzCore",
+  "description": "Provides utilities.",
+  "version": "0.0",
+  "url": "https://github.com/Azulaloi/AzMod",
+  "authorList": ["Azulaloi"],
+  "logoFile": "assets/azmod/textures/items/testitem.png"
 }]

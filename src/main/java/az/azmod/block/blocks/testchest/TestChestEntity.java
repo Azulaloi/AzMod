@@ -1,4 +1,4 @@
-package az.azmod.block.blocks;
+package az.azmod.block.blocks.testchest;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,6 +20,12 @@ public class TestChestEntity extends TileEntity{
             TestChestEntity.this.markDirty(); //makes it check before operating?
         }
     };
+
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound){
+        compound.setTag("items", itemStackHandler.serializeNBT());
+        return super.writeToNBT(compound);
+    }
 
     @Override
     public void readFromNBT(NBTTagCompound compound){

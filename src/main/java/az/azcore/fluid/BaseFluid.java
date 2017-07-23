@@ -1,18 +1,23 @@
-package az.azmod.block.fluid;
+package az.azcore.fluid;
 
 import az.azmod.AzMod;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.Loader;
+
+import static az.azcore.util.AzUtil.unlocalizedWithID;
 
 /**
  * Created by Azulaloi on 7/12/2017.
  */
-public class ModFluid extends Fluid {
+public abstract class BaseFluid extends Fluid {
+    private String ID = Loader.instance().activeModContainer().getModId().toLowerCase();
 
     //While this is currently functionally identical to implementing Fluid,
     //this class should allow me to implement other features in the future.
-    public ModFluid(String name, ResourceLocation still, ResourceLocation flowing) {
-        super(AzMod.MODID + "." + name, still, flowing);
+    public BaseFluid(String name, ResourceLocation still, ResourceLocation flowing) {
+        super(name, still, flowing);
+        setUnlocalizedName(unlocalizedWithID(name, ID));
 
 //        setLuminosity(15);
 //        setDensity();
