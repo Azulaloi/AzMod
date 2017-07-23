@@ -8,19 +8,20 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Loader;
 
 import static az.azcore.util.AzUtil.unlocalizedWithID;
+import static az.azcore.util.ModelUtil.registerItemModel;
 import static az.azcore.util.RegisterUtil.registerItem;
 
 /**
  * Created by Azulaloi on 7/17/2017.
  */
-public abstract class ModItem extends Item implements IRegisterable{
+public abstract class BaseItem extends Item implements IRegisterable{
 
     public String ID = Loader.instance().activeModContainer().getModId().toLowerCase();
 
-    public ModItem(String name, CreativeTabs creativeTab){
+    public BaseItem(String name, CreativeTabs creativeTab){
         setUnlocalizedName(unlocalizedWithID(name, ID));
         setRegistryName(name);
-        if (creativeTab != null) {
+        if (creativeTab != null) { //That's not how this works. That's not how any of this works!
             setCreativeTab(creativeTab);
         }
     }
@@ -32,10 +33,6 @@ public abstract class ModItem extends Item implements IRegisterable{
 
     @Override
     public void initModel(){
-        ModelLoader.setCustomModelResourceLocation(
-                this,
-                0,
-                new ModelResourceLocation(getRegistryName(), "inventory")
-        );
+        registerItemModel(this);
     }
 }

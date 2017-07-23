@@ -11,7 +11,6 @@ public class RegisterUtil {
 
     public static void registerBlock(Block block){
         ForgeRegistries.BLOCKS.register(block);
-
     }
 
     public static void registerBlockItem(Block block){

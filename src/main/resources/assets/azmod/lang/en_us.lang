@@ -6,4 +6,5 @@ tile.azmod.testchest.name=Test Chest
 fluid.azmod.fluidtest=Test Fluid
 # Items
 item.azmod.testitem.name=Test Item Prime
-item.azmod.testitem1.name=Test Item Minor
+item.azmod.testitem2.name=Test Item Minor
+item.azmod.testfood.name=Test Food

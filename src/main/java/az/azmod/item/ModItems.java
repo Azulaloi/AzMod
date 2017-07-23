@@ -1,6 +1,7 @@
 package az.azmod.item;
 
 import az.azcore.registry.IRegisterable;
+import az.azmod.item.items.TestFood;
 import az.azmod.item.items.TestItem;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -17,10 +18,11 @@ public class ModItems {
    public static void preInit(){
       testItem = new TestItem("testitem");
       testItem2 = new TestItem("testitem2");
+      testFood = new TestFood();
 
       registerables.add(testItem);
       registerables.add(testItem2);
-
+      registerables.add(testFood);
 
       for (IRegisterable registerable : registerables) {
          registerable.register();
@@ -43,4 +45,6 @@ public class ModItems {
 
    public static TestItem testItem;
    public static TestItem testItem2;
+   public static TestFood testFood;
+
 }
