@@ -1,6 +1,7 @@
 package az.azmod;
 
 import az.azmod.block.ModBlocks;
+import az.azmod.command.NoiseCommand;
 import az.azmod.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -11,6 +12,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = AzMod.MODID, name = AzMod.MODNAME, version = AzMod.MODVERSION, useMetadata = true,
@@ -57,6 +59,11 @@ public class AzMod {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+    }
+
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent event){
+        event.registerServerCommand(new NoiseCommand());
     }
 
 
