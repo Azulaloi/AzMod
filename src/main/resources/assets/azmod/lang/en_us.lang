@@ -8,4 +8,14 @@ fluid.azmod.fluidtest=Test Fluid
 item.azmod.testitem.name=Test Item Prime
 item.azmod.testitem2.name=Test Item Minor
 item.azmod.testfood.name=Test Food
+#Tools
 item.azmod.testsword.name=Test Sword
+item.azmod.testpickaxe.name=Test Pickaxe
+item.azmod.testaxe.name=Test Axe
+item.azmod.testshovel.name=Test Shovel
+item.azmod.testhoe.name=Test Hoe
+#Armor
+item.azmod.testhelmet.name=Test Helmet
+item.azmod.testchestplate.name=Test Chestplate
+item.azmod.testleggings.name=Test Leggings
+item.azmod.testboots.name=Test Boots

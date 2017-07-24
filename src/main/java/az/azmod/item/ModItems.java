@@ -2,11 +2,14 @@ package az.azmod.item;
 
 import az.azcore.util.ModelUtil;
 import az.azmod.AzMod;
+import az.azmod.item.armor.TestArmor;
 import az.azmod.item.items.TestFood;
 import az.azmod.item.items.TestItem;
 import az.azmod.item.tools.*;
 import az.azmod.proxy.ClientProxy;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -28,6 +31,11 @@ public class ModItems {
    public static TestAxe testAxe = new TestAxe();
    public static TestHoe testHoe = new TestHoe();
 
+   public static TestArmor testHelmet = new TestArmor(ItemArmor.ArmorMaterial.IRON, EntityEquipmentSlot.HEAD, "testhelmet");
+   public static TestArmor testChestplate = new TestArmor(ItemArmor.ArmorMaterial.IRON, EntityEquipmentSlot.CHEST, "testchestplate");
+   public static TestArmor testLeggings = new TestArmor(ItemArmor.ArmorMaterial.IRON, EntityEquipmentSlot.LEGS, "testleggings");
+   public static TestArmor testBooties = new TestArmor(ItemArmor.ArmorMaterial.IRON, EntityEquipmentSlot.FEET, "testboots");
+
    @SubscribeEvent
    public static void registerItems(RegistryEvent.Register<Item> event){
       event.getRegistry().registerAll(
@@ -41,7 +49,12 @@ public class ModItems {
               testShovel,
               testPickaxe,
               testAxe,
-              testHoe
+              testHoe,
+
+              testHelmet,
+              testChestplate,
+              testLeggings,
+              testBooties
       );
 
 //      ModelLoader.setCustomModelResourceLocation(
@@ -61,6 +74,11 @@ public class ModItems {
          ModelUtil.registerItemModel(testPickaxe);
          ModelUtil.registerItemModel(testAxe);
          ModelUtil.registerItemModel(testHoe);
+
+         ModelUtil.registerItemModel(testHelmet);
+         ModelUtil.registerItemModel(testChestplate);
+         ModelUtil.registerItemModel(testLeggings);
+         ModelUtil.registerItemModel(testBooties);
       }
 
    }
