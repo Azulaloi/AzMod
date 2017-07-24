@@ -21,7 +21,7 @@ public class AzMod {
     public static final String MODNAME = "AzMod";
     public static final String MODVERSION = "0.0";
 
-    @SidedProxy(clientSide = "az.azmod.proxy.ClientProxy")
+    @SidedProxy(clientSide = "az.azmod.proxy.ClientProxy", serverSide = "az.azmod.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance
