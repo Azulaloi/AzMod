@@ -1,6 +1,7 @@
 package az.azmod;
 
 import az.azmod.block.ModBlocks;
+import az.azmod.command.ChunkPosCommand;
 import az.azmod.command.NoiseCommand;
 import az.azmod.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -64,6 +65,7 @@ public class AzMod {
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event){
         event.registerServerCommand(new NoiseCommand());
+        event.registerServerCommand(new ChunkPosCommand());
     }
 
 
