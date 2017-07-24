@@ -1,66 +1,66 @@
 package az.azmod.item;
 
-import az.azcore.registry.IRegisterable;
+import az.azcore.util.ModelUtil;
+import az.azmod.AzMod;
 import az.azmod.item.items.TestFood;
 import az.azmod.item.items.TestItem;
 import az.azmod.item.tools.*;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.ArrayList;
+import az.azmod.proxy.ClientProxy;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Created by Azulaloi on 7/14/2017.
  */
+@Mod.EventBusSubscriber(modid = AzMod.MODID)
 public class ModItems {
 
-   private static ArrayList<IRegisterable> registerables = new ArrayList<>();
+   public static TestItem testItem = new TestItem("testitem");
+   public static TestItem testItem2 = new TestItem("testitem2");
 
-//   public static TestItem testItem = new TestItem("testitem");
+   public static TestFood testFood = new TestFood();
 
-   public static void preInit(){
-      testItem = new TestItem("testitem");
-      testItem2 = new TestItem("testitem2");
-      testFood = new TestFood();
+   public static TestSword testSword = new TestSword();
+   public static TestShovel testShovel = new TestShovel();
+   public static TestPickaxe testPickaxe = new TestPickaxe();
+   public static TestAxe testAxe = new TestAxe();
+   public static TestHoe testHoe = new TestHoe();
 
-      testSword = new TestSword();
-      testAxe = new TestAxe();
-      testHoe = new TestHoe();
-      testPickaxe = new TestPickaxe();
-      testShovel = new TestShovel();
+   @SubscribeEvent
+   public static void registerItems(RegistryEvent.Register<Item> event){
+      event.getRegistry().registerAll(
+              testItem,
+              testItem2,
+              testFood,
 
-      registerables.add(testItem);
-      registerables.add(testItem2);
+              //Tools
+              testSword,
+              testShovel,
+              testPickaxe,
+              testAxe,
+              testHoe
+      );
 
-      registerables.add(testFood);
-      registerables.add(testSword);
-      registerables.add(testShovel);
-      registerables.add(testPickaxe);
-      registerables.add(testHoe);
-      registerables.add(testAxe);
+      ModelLoader.setCustomModelResourceLocation(
+              testItem,
+              0,
+              new ModelResourceLocation("azmod:testitem", "inventory")
+      );
 
-      for (IRegisterable registerable : registerables) {
-         registerable.register();
+      if (AzMod.proxy instanceof ClientProxy){
+         ModelUtil.registerItemModel(testItem2);
       }
+
    }
 
-
-
-   @SideOnly(Side.CLIENT) //Client-side conditional
-   public static void initModels(){
-      for(IRegisterable registerable : registerables){
-         registerable.initModel();
-      }
-   }
-
-   public static TestItem testItem;
-   public static TestItem testItem2;
-   public static TestFood testFood;
-
-   public static TestSword testSword;
-   public static TestPickaxe testPickaxe;
-   public static TestAxe testAxe;
-   public static TestShovel testShovel;
-   public static TestHoe testHoe;
-
+//   @SideOnly(Side.CLIENT) //Client-side conditional
+//   public static void initModels(){
+//      for(IRegisterable registerable : registerables){
+//         registerable.initModel();
+//      }
+//   }
 }

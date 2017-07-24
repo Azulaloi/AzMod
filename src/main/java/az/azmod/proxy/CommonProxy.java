@@ -2,7 +2,6 @@ package az.azmod.proxy;
 
 import az.azcore.proxy.PseudoProxy;
 import az.azmod.block.ModBlocks;
-import az.azmod.item.ModItems;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -19,7 +18,7 @@ public class CommonProxy extends PseudoProxy{
     @Override
     public void preInit(FMLPreInitializationEvent event){
         super.preInit(event);
-        ModItems.preInit();
+//        ModItems.preInit();
         ModBlocks.preInit();
     }
 
