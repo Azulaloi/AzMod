@@ -1,78 +1,52 @@
 package az.azmod.block;
 
-import az.azcore.registry.IRegisterable;
+import az.azcore.util.ModelUtil;
+import az.azcore.util.RegisterUtil;
+import az.azmod.AzMod;
 import az.azmod.block.blocks.TestBlock;
 import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.blocks.testchest.TestChestBlock;
 import az.azmod.fluid.ModFluids;
 import az.azmod.fluid.fluids.TestFluidBlock;
+import az.azmod.proxy.ClientProxy;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.ArrayList;
+import net.minecraft.item.Item;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Created by Azulaloi on 7/10/2017.
  */
+@Mod.EventBusSubscriber(modid = AzMod.MODID)
 public class ModBlocks {
+    public static TestBlock testBlock = new TestBlock("testblock", Material.ROCK);
+    public static TestBlockRotatable testBlockRotatable = new TestBlockRotatable();
+    public static TestChestBlock testChest = new TestChestBlock();
+    public static TestFluidBlock testFluidBlock = new TestFluidBlock(ModFluids.fluidTest);
 
-    private static ArrayList<IRegisterable> registerables = new ArrayList<>();
-
-    public static void preInit(){
-        testBlock = new TestBlock("testblock", Material.ROCK);
-        testBlockRotatable = new TestBlockRotatable();
-        testChest = new TestChestBlock();
-        testFluidBlock = new TestFluidBlock(ModFluids.fluidTest);
-
-        registerables.add(testBlock);
-        registerables.add(testBlockRotatable);
-        registerables.add(testChest);
-        registerables.add(testFluidBlock);
-
-        for (IRegisterable registerable : registerables) {
-            registerable.register();
-        }
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event){
+        event.getRegistry().registerAll(
+            testBlock,
+            testBlockRotatable,
+            testChest,
+            testFluidBlock
+        );
     }
 
-    public static TestBlock testBlock;
-    public static TestBlockRotatable testBlockRotatable;
-    public static TestChestBlock testChest;
-    public static TestFluidBlock testFluidBlock;
+    @SubscribeEvent
+    public static void registerBlockItems(RegistryEvent.Register<Item> event) {
+        RegisterUtil.registerBlockItem(testBlock);
+        RegisterUtil.registerBlockItem(testBlockRotatable);
+        RegisterUtil.registerBlockItem(testChest);
 
-    @SideOnly(Side.CLIENT) //Client-side conditional
-    public static void initModels(){
-        for(IRegisterable registerable : registerables){
-            registerable.initModel();
+        if (AzMod.proxy instanceof ClientProxy){
+            ModelUtil.registerItemModel(Item.getItemFromBlock(testBlock));
+            ModelUtil.registerItemModel(Item.getItemFromBlock(testBlockRotatable));
+            ModelUtil.registerItemModel(Item.getItemFromBlock(testChest));
+            testFluidBlock.initModel();
         }
     }
-
-    /**
-     * Blocks
-     */
-
-//
-//    @GameRegistry.ObjectHolder("azmod:testblockrotatable")
-//    public static TestBlockRotatable testBlockRotatable;
-
-//    @GameRegistry.ObjectHolder("azmod:testchest")
-//    public static TestChestBlock testChest;
-
-    /**
-     * Fluid Blocks
-     */
-
-//    @GameRegistry.ObjectHolder("azmod:fluidtestblock") //Creates block event
-//    public static TestFluidBlock testFluidBlock; //Creates block reference
-
-    /**
-     * Models
-     */
-//    @SideOnly(Side.CLIENT) //Client-side conditional
-//    public static void initModels(){
-//        testBlock.initModel();
-//        testBlockRotatable.initModel();
-//        testFluidBlock.initModel();
-//        testChest.initModel();
-//    }
 }
