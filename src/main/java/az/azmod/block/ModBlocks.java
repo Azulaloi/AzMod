@@ -4,6 +4,7 @@ import az.azcore.registry.IRegisterable;
 import az.azmod.block.blocks.TestBlock;
 import az.azmod.block.blocks.TestBlockRotatable;
 import az.azmod.block.blocks.testchest.TestChestBlock;
+import az.azmod.fluid.ModFluids;
 import az.azmod.fluid.fluids.TestFluidBlock;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.relauncher.Side;
@@ -22,7 +23,7 @@ public class ModBlocks {
         testBlock = new TestBlock("testblock", Material.ROCK);
         testBlockRotatable = new TestBlockRotatable();
         testChest = new TestChestBlock();
-        testFluidBlock = new TestFluidBlock();
+        testFluidBlock = new TestFluidBlock(ModFluids.fluidTest);
 
         registerables.add(testBlock);
         registerables.add(testBlockRotatable);
