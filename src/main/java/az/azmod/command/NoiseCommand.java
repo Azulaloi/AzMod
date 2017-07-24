@@ -36,33 +36,24 @@ public class NoiseCommand extends CommandBase {
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length < 3) {
             BlockPos pos = sender.getPosition();
-//            sender.sendMessage(new TextComponentString(Double.toString(Math.round(PerlinNoise.noise(pos.getX() + 0.01,
-//                                                                                                    pos.getZ() + 0.01,
-//                                                                                                    1)))
-//            ));
 
-            sender.sendMessage(new TextComponentString(Double.toString(AzUtil.rounder(PerlinNoise.noise(pos.getX() + 0.01,
-                                                                                                        pos.getZ() + 0.01,
-                                                                                                        1), 3))
+            sender.sendMessage(new TextComponentString("Without Octaves: " + Double.toString(AzUtil.rounder(
+                    PerlinNoise.noise(
+                            pos.getX() + 0.01,
+                            pos.getZ() + 0.01,
+                            1), 7))
             ));
 
-//            sender.sendMessage(new TextComponentString(Double.toString(Math.round((PerlinNoise.noise(pos.getX() + 0.01,
-//                                                                                                    pos.getZ() + 0.01,
-//                                                                                                    1))
-//            ))
-//            ));
 
-//            sender.sendMessage(new TextComponentString(Double.toString(
-//                    (Math.round(
-//                            (PerlinNoise.noise(pos.getX() + 0.01,
-//                                               pos.getZ() + 0.01,
-//                                               1)
-//                             * 100.0) / 100.0
-//                        )
-//                    )
-//                )
-//            )
-//            );
+            sender.sendMessage(new TextComponentString("With Octaves: " + Double.toString(AzUtil.rounder(
+                    PerlinNoise.OctavePerlin(pos.getX() + 0.01,
+                                             pos.getZ() + 0.01,
+                                             10.01,
+                                             3,
+                                             3), 7))
+            ));
+
+
         }
     }
 }

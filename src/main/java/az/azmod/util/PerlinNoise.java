@@ -49,4 +49,20 @@ public final class PerlinNoise {
                                                            138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180
     };
     static { for (int i=0; i < 256 ; i++) p[256+i] = p[i] = permutation[i]; }
+
+    static public double OctavePerlin(double x, double y, double z, int octaves, double pers){
+        double total = 0;
+        double frequency = 1;
+        double amplitude = 1;
+        double maxValue = 0;
+        for (int i = 0; i < octaves; i++){
+            total += noise(x * frequency, y * frequency, z * frequency) * amplitude;
+
+            maxValue += amplitude;
+
+            amplitude *= pers;
+            frequency *= 2;
+        }
+        return total/maxValue;
+    }
 }
