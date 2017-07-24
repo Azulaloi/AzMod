@@ -1,5 +1,6 @@
 package az.azmod.command;
 
+import az.azcore.util.AzUtil;
 import az.azmod.util.PerlinNoise;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -14,9 +15,15 @@ import javax.annotation.Nonnull;
  * Created by Azulaloi on 7/24/2017
  */
 public class NoiseCommand extends CommandBase {
+
+    public int getRequiredPermissionLevel() {
+        return 2;
+    }
+
+
     @Override
     @Nonnull
-    public String getName(){
+    public String getName() {
         return "noise";
     }
 
@@ -27,15 +34,35 @@ public class NoiseCommand extends CommandBase {
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-        if (args.length < 3){
+        if (args.length < 3) {
             BlockPos pos = sender.getPosition();
-            sender.sendMessage(new TextComponentString(Double.toString(PerlinNoise.noise(pos.getX() + 0.01,
-                                                                                         pos.getY() + 0.01,
-                                                                                         pos.getZ() + 0.01))
+//            sender.sendMessage(new TextComponentString(Double.toString(Math.round(PerlinNoise.noise(pos.getX() + 0.01,
+//                                                                                                    pos.getZ() + 0.01,
+//                                                                                                    1)))
+//            ));
+
+            sender.sendMessage(new TextComponentString(Double.toString(AzUtil.rounder(PerlinNoise.noise(pos.getX() + 0.01,
+                                                                                                        pos.getZ() + 0.01,
+                                                                                                        1), 3))
             ));
+
+//            sender.sendMessage(new TextComponentString(Double.toString(Math.round((PerlinNoise.noise(pos.getX() + 0.01,
+//                                                                                                    pos.getZ() + 0.01,
+//                                                                                                    1))
+//            ))
+//            ));
+
+//            sender.sendMessage(new TextComponentString(Double.toString(
+//                    (Math.round(
+//                            (PerlinNoise.noise(pos.getX() + 0.01,
+//                                               pos.getZ() + 0.01,
+//                                               1)
+//                             * 100.0) / 100.0
+//                        )
+//                    )
+//                )
+//            )
+//            );
         }
-
     }
-
-
 }
