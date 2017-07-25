@@ -46,7 +46,10 @@ public class TestTankBlock extends ModBlock implements ITileEntityProvider {
             tileEntity.markDirty();
             return true;
         }
-        if (world.isRemote && itemStack.isEmpty() && (((TestTankEntity) tileEntity).getFluid() != null)) {
+//        if (!world.isRemote && itemStack.isEmpty() && (((TestTankEntity) tileEntity).getFluid() != null)){
+//            tileEntity.getUpdatePacket()
+//        }
+        else if (world.isRemote && itemStack.isEmpty() && (((TestTankEntity) tileEntity).getFluid() != null)) {
             player.sendMessage(new TextComponentString(((TestTankEntity) tileEntity).getFluid().getLocalizedName() + ((TestTankEntity) tileEntity).getFluidAmount()));
             return true;
         }

@@ -3,6 +3,8 @@ package az.azmod;
 import az.azmod.block.ModBlocks;
 import az.azmod.command.ChunkPosCommand;
 import az.azmod.command.NoiseCommand;
+import az.azmod.network.PacketFluidInfo;
+import az.azmod.network.PacketFluidInfoRequest;
 import az.azmod.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -14,6 +16,10 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = AzMod.MODID, name = AzMod.MODNAME, version = AzMod.MODVERSION, useMetadata = true,
@@ -30,7 +36,7 @@ public class AzMod {
     @Mod.Instance
     public static AzMod instance;
 
-    public static Logger logger;
+    public static final Logger logger = LogManager.getLogger(MODID);
 
     public static CreativeTabs creativeTab = new CreativeTabs(MODID){
         @Override
@@ -45,11 +51,19 @@ public class AzMod {
         FluidRegistry.enableUniversalBucket();
     }
 
+    public static final SimpleNetworkWrapper network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
+//    public static SimpleNetworkWrapper wrapper;
+//    public static SimpleNetworkWrapper network;
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
+//        logger = event.getModLog();
         MinecraftForge.EVENT_BUS.register(proxy);
         proxy.preInit(event);
+
+//        network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
+        network.registerMessage(new PacketFluidInfo.Handler(), PacketFluidInfo.class, 0, Side.CLIENT);
+        network.registerMessage(new PacketFluidInfoRequest.Handler(), PacketFluidInfoRequest.class, 1, Side.CLIENT);
     }
 
     @Mod.EventHandler

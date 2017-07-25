@@ -1,5 +1,7 @@
 package az.azmod.block.blocks.testtank;
 
+import az.azmod.AzMod;
+import az.azmod.network.PacketFluidInfoRequest;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -20,6 +22,14 @@ public class TestTankEntity extends TileEntity implements IFluidTank, IFluidHand
 
     public TestTankEntity(){
 
+    }
+
+    @Override
+    public void onLoad(){
+        if (world.isRemote) {
+            AzMod.network.sendToServer(new PacketFluidInfoRequest(this));
+        }
+//        AzMod.network.getPacketFrom()
     }
 
     @Override
