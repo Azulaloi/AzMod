@@ -5,6 +5,7 @@ import az.azcore.util.RegisterUtil;
 import az.azmod.AzMod;
 import az.azmod.block.blocks.TestBlock;
 import az.azmod.block.blocks.TestBlockRotatable;
+import az.azmod.block.blocks.TestSapling;
 import az.azmod.block.blocks.testchest.TestChestBlock;
 import az.azmod.block.blocks.testtank.TestTankBlock;
 import az.azmod.block.blocks.testtank.TestTankEntity;
@@ -29,6 +30,7 @@ public class ModBlocks {
     public static TestChestBlock testChest = new TestChestBlock();
     public static TestFluidBlock testFluidBlock = new TestFluidBlock(ModFluids.fluidTest);
     public static TestTankBlock testTank = new TestTankBlock();
+    public static TestSapling testSapling = new TestSapling("testsapling", Material.PLANTS, AzMod.creativeTab);
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event){
@@ -37,7 +39,8 @@ public class ModBlocks {
             testBlockRotatable,
             testChest,
             testFluidBlock,
-            testTank
+            testTank,
+            testSapling
         );
         GameRegistry.registerTileEntity(TestTankEntity.class, AzMod.MODID + "_testtank");
     }
@@ -48,12 +51,14 @@ public class ModBlocks {
         RegisterUtil.registerBlockItem(testBlockRotatable);
         RegisterUtil.registerBlockItem(testChest);
         RegisterUtil.registerBlockItem(testTank);
+        RegisterUtil.registerBlockItem(testSapling);
 
         if (AzMod.proxy instanceof ClientProxy){
             ModelUtil.registerItemModel(Item.getItemFromBlock(testBlock));
             ModelUtil.registerItemModel(Item.getItemFromBlock(testBlockRotatable));
             ModelUtil.registerItemModel(Item.getItemFromBlock(testChest));
             ModelUtil.registerItemModel(Item.getItemFromBlock(testTank));
+            ModelUtil.registerItemModel(Item.getItemFromBlock(testSapling));
 
             testFluidBlock.initModel();
         }
