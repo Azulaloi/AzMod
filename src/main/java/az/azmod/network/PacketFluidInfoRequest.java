@@ -1,60 +1,58 @@
 package az.azmod.network;
 
-import az.azmod.AzMod;
-import az.azmod.block.blocks.testtank.TestTankEntity;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import org.apache.logging.log4j.Level;
+
+import java.util.UUID;
 
 /**
  * Created by Azulaloi on 7/25/2017
  */
 public class PacketFluidInfoRequest implements IMessage{
-    private BlockPos pos;
-    private int dim;
+    public long pos = 0;
+    UUID id = null;
 
-    public PacketFluidInfoRequest(BlockPos pos, int dim){
-        this.pos = pos;
-        this.dim = dim;
-    }
-
-    public PacketFluidInfoRequest(TestTankEntity tankEntity){
-        this(tankEntity.getPos(), tankEntity.getWorld().provider.getDimension());
+    public PacketFluidInfoRequest(UUID id, BlockPos pos){
+        this.pos = pos.toLong();
+        this.id = id;
     }
 
     public PacketFluidInfoRequest(){
+
     }
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        pos = BlockPos.fromLong(buf.readLong());
-        dim = buf.readInt();
+        id = new UUID(buf.readLong(), buf.readLong());
+        pos = buf.readLong();
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        buf.writeLong(pos.toLong());
-        buf.writeInt(dim);
+        buf.writeLong(id.getMostSignificantBits());
+        buf.writeLong(id.getLeastSignificantBits());
+        buf.writeLong(pos);
     }
 
     public static class Handler implements IMessageHandler<PacketFluidInfoRequest, PacketFluidInfo>{
 
         @Override
         public PacketFluidInfo onMessage(PacketFluidInfoRequest message, MessageContext ctx) {
-//            World world = FMLCommonHandler.instance().getMinecraftServerInstance().worldServerForDimension(message.dim);
-            World world = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(message.dim);
-            TestTankEntity tankEntity = (TestTankEntity)world.getTileEntity(message.pos);
-            if(tankEntity != null){
-                return new PacketFluidInfo(tankEntity);
-            } else {
-                AzMod.logger.log(Level.ERROR, "Attempted to request packet from TestTankEntity at" + message.pos + "in dimension" + message.dim + ", but it doesn't exist!"); //make this a verbose only log
-                return null;
+            BlockPos pos = BlockPos.fromLong(message.pos);
+            EntityPlayer playerIn = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUUID(message.id);
+            if (playerIn != null){
+                if (playerIn.world != null){
+                    if (playerIn.world.getTileEntity(pos) != null){
+                        playerIn.world.getTileEntity(pos).markDirty();
+                    }
+                }
             }
+            return null;
         }
     }
 }
