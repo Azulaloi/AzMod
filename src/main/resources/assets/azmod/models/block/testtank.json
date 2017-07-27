@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "azmod:blocks/testblock",
+    "down": "azmod:blocks/testblock",
+    "up": "azmod:blocks/testtanktop",
+    "east": "azmod:blocks/testtank",
+    "west": "azmod:blocks/testtank",
+    "north": "azmod:blocks/testtank",
+    "south": "azmod:blocks/testtank"
+  }
+}
