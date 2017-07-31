@@ -17,7 +17,7 @@ import static az.azcore.util.AzUtil.unlocalizedWithID;
 /**
  * Created by Azulaloi on 7/27/2017
  */
-public class TestSapling extends BlockBush implements IGrowable {
+public class TestSapling extends BlockBush implements IGrowable { //TODO: fix bounding box
 
     public TestSapling(String name, Material material, CreativeTabs creativeTab){
         super(material);
