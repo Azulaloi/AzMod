@@ -10,5 +10,8 @@ import net.minecraft.block.material.Material;
 public class TestBlock extends ModBlock {
     public TestBlock(String name, Material material) {
         super(name, material, AzMod.creativeTab);
+//        setHarvestLevel("pickaxe", 0);
+        setHardness(3.0f);
+        setResistance(5.0f);
     }
 }

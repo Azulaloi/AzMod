@@ -5,6 +5,7 @@ import az.azcore.util.RegisterUtil;
 import az.azmod.AzMod;
 import az.azmod.block.blocks.TestBlock;
 import az.azmod.block.blocks.TestBlockRotatable;
+import az.azmod.block.blocks.TestLeaves;
 import az.azmod.block.blocks.TestSapling;
 import az.azmod.block.blocks.testchest.TestChestBlock;
 import az.azmod.block.blocks.testtank.TestTankBlock;
@@ -31,6 +32,8 @@ public class ModBlocks {
     public static TestFluidBlock testFluidBlock = new TestFluidBlock(ModFluids.fluidTest);
     public static TestTankBlock testTank = new TestTankBlock();
     public static TestSapling testSapling = new TestSapling("testsapling", Material.PLANTS, AzMod.creativeTab);
+    public static TestBlock silverMapleLog = new TestBlock("logsilvermaple", Material.WOOD);
+    public static TestLeaves silverMapleLeaves = new TestLeaves();
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event){
@@ -40,7 +43,9 @@ public class ModBlocks {
             testChest,
             testFluidBlock,
             testTank,
-            testSapling
+            testSapling,
+            silverMapleLog,
+            silverMapleLeaves
         );
         GameRegistry.registerTileEntity(TestTankEntity.class, AzMod.MODID + "_testtank");
     }
@@ -52,6 +57,8 @@ public class ModBlocks {
         RegisterUtil.registerBlockItem(testChest);
         RegisterUtil.registerBlockItem(testTank);
         RegisterUtil.registerBlockItem(testSapling);
+        RegisterUtil.registerBlockItem(silverMapleLog);
+        RegisterUtil.registerBlockItem(silverMapleLeaves);
 
         if (AzMod.proxy instanceof ClientProxy){
             ModelUtil.registerItemModel(Item.getItemFromBlock(testBlock));
@@ -59,6 +66,8 @@ public class ModBlocks {
             ModelUtil.registerItemModel(Item.getItemFromBlock(testChest));
             ModelUtil.registerItemModel(Item.getItemFromBlock(testTank));
             ModelUtil.registerItemModel(Item.getItemFromBlock(testSapling));
+            ModelUtil.registerItemModel(Item.getItemFromBlock(silverMapleLog));
+            ModelUtil.registerItemModel(Item.getItemFromBlock(silverMapleLeaves));
 
             testFluidBlock.initModel();
         }
