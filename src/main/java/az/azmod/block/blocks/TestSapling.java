@@ -59,7 +59,9 @@ public class TestSapling extends BlockBush implements IGrowable {
     }
 
     private void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand){
-        worldIn.setBlockToAir(pos);
-        new Tree(true, true).generate(worldIn, rand, pos);
+        worldIn.setBlockToAir(pos);                                 //Tree can't generate if there's a block (the sapling) in the way
+        if (!new Tree(true, true).generate(worldIn, rand, pos)){    //Put that sapling back if it tried to generate but failed
+            worldIn.setBlockState(pos, state);
+        }
     }
 }
