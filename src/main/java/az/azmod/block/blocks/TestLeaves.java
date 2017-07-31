@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by Azulaloi on 7/10/2017.
  */
-public class TestLeaves extends BlockLeaves {
+public class TestLeaves extends BlockLeaves { //TODO: make them not decay when attached to the logs
     public static final PropertyBool DECAYABLE = PropertyBool.create("decayable");
     public static final PropertyBool CHECK_DECAY = PropertyBool.create("check_decay");
 
@@ -74,7 +74,7 @@ public class TestLeaves extends BlockLeaves {
     public int getMetaFromState(IBlockState state)
     {
         int i = 0;
-//        i = i | ((BlockPlanks.EnumType)state.getValue(VARIANT)).getMetadata();
+//        i = i | ((BlockPlanks.EnumType)state.getValue(VARIANT)).getMetadata(); //Until I return, sweet prince
 
         if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
         {

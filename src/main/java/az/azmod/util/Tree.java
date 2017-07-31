@@ -1,8 +1,6 @@
 package az.azmod.util;
 
 import az.azmod.block.ModBlocks;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +13,8 @@ public class Tree extends WorldGenAbstractTree
 {
 //    private static final IBlockState LOG = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.BIRCH);
     private static final IBlockState LOG = ModBlocks.silverMapleLog.getDefaultState();
-    private static final IBlockState LEAF = Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
+//    private static final IBlockState LEAF = Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
+    private static final IBlockState LEAF = ModBlocks.silverMapleLeaves.getDefaultState();
     private final boolean useExtraRandomHeight;
 
     public Tree(boolean notify, boolean useExtraRandomHeightIn) {
