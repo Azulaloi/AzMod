@@ -8,11 +8,18 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.statemap.IStateMapper;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -48,6 +55,18 @@ public class TestLeaves extends BlockLeaves {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer(){
+        return Blocks.LEAVES.getBlockLayer(); //I said I don't know!
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess access, BlockPos pos, EnumFacing facing){
+        return Blocks.LEAVES.shouldSideBeRendered(state, access, pos, facing); //I don't know, please leave me alone!
+    }
+
+    @Override
     protected BlockStateContainer createBlockState(){
         return new BlockStateContainer(this, new IProperty[]{CHECK_DECAY, DECAYABLE});
     }
@@ -74,6 +93,12 @@ public class TestLeaves extends BlockLeaves {
     {
 //        return this.getDefaultState().withProperty(VARIANT, this.getWoodType(meta)).withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
         return this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void initModel(){
+        IStateMapper godwhy = (new StateMap.Builder()).ignore(new IProperty[]{CHECK_DECAY, DECAYABLE}).build();
+        ModelLoader.setCustomStateMapper(this, godwhy);
     }
 
 

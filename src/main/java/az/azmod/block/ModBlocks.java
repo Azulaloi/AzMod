@@ -70,6 +70,7 @@ public class ModBlocks {
             ModelUtil.registerItemModel(Item.getItemFromBlock(silverMapleLeaves));
 
             testFluidBlock.initModel();
+            silverMapleLeaves.initModel();
         }
     }
 }
